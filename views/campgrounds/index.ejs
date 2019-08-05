@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+
+<div class="jumbotron jumbotron-fluid py-2 mb-0">
+    <div class="container-fluid px-4 pb-2">
+        <h1 class="display-4">Campgrounds</h1>
+        <hr class="my-3">
+        <p class="lead mb-3">This is a list of all campgrounds on YelpCamp.</p>
+        <a class="btn btn-primary btn-lg" href="/campgrounds/new" role="button">Add new campground</a>
+    </div>
+</div>
+
+<div class="container px-0 pt-3">
+	<div class="card-group">
+		<div class="row hidden-md-up">
+			<% campgrounds.forEach((campground) => { %>
+				<div class="col-sm-6 col-md-4 mb-3 px-2">
+					<div class="card">
+						<img class="card-img-top" src="<%= campground.image %>" alt="Card image cap">
+						<a href="/campgrounds/<%= campground._id %>"><button class="card-block btn p-0">
+							<p class="card-title font-weight-bold my-1 px-2"><%= campground.name %></p>
+						</button></a>
+					</div>
+				</div>
+			<% }) %>
+		</div>
+	</div>
+</div>
+
+<% include ../partials/footer %>
